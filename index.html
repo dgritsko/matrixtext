@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>initializing...</title>
+<title>The Matrix (Party like it's 1999)</title>
 <script type="text/javascript">
 <!--
 var canvas;
@@ -11,10 +11,13 @@ function start() {
    canvas = document.getElementById('canvas');
    ctx = canvas.getContext('2d');
 
+   canvas.width = document.width;
+   canvas.height = document.height;
+
    setInterval('update()', 100);
 }
 
-function getNewLine() {
+function createTextColumn() {
    var start = Math.floor(Math.random() * canvas.width);
    var speed = Math.floor(Math.random() * 5) + 10;
 
@@ -22,9 +25,7 @@ function getNewLine() {
 }
 
 function getChar() {
-   var characters = '1234567890qwertyuiopasdfghjklzxcvbnm,./[]!@#$%^&*()-=+';
-   
-   return characters[Math.floor(Math.random() * characters.length)];
+   return String.fromCharCode(Math.floor(Math.random() * 65536))
 }
 
 function update() {
@@ -32,7 +33,7 @@ function update() {
    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
    if (lines.length < (canvas.height / 5)) {
-      lines.push(getNewLine());
+      lines.push(createTextColumn());
    }
 
    ctx.fillStyle = '#0f0';
@@ -63,7 +64,7 @@ body {
 <body onload="start()">
 
 <canvas id="canvas" width="1024" height="768" style="background-color: #000; width: 100%; height: 100%">
-Sorry, you are not the One.
+Your browser does not support Canvas.
 </canvas>
 </body>
 </html>
