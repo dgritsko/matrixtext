@@ -42,9 +42,7 @@ function update() {
    for (var i = 0, len = lines.length; i < len; i++) {
       ctx.fillText(getChar(), lines[i].x, lines[i].y);
       lines[i].y += lines[i].speed;
-   }
 
-   for (var i = 0, len = lines.length; i < len; i++) {
       if (lines[i].y > canvas.height) {
          lines.splice(i, 1);
 	 len = lines.length;
